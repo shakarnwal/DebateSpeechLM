@@ -33,6 +33,7 @@ class Vocab(object):
         return len(self._tok_to_ind)
 
     def __getitem__(self, key):
+        
         if isinstance(key, int):
             return self._ind_to_tok[key]
         else:

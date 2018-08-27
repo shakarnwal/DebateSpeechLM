@@ -1,13 +1,3 @@
-#!/usr/bin/python3
-# -*- coding: UTF-8 -*-
-
-"""
-Trains and evaluates an RNN language model written using
-PyTorch v0.4. Illustrates how to combine a batched, non-padded
-variable length data input with torch.nn.Embedding and how to
-use tied input and output word embeddings.
-"""
-
 from argparse import ArgumentParser
 import logging
 import math

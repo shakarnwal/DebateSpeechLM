@@ -1,4 +1,3 @@
-import os
 import jsonlist
 from vocab import Vocab
 
@@ -8,7 +7,7 @@ SENT_END = "<sentence_end>"
 def create_speechtexts():
 
     infile = jsonlist.load_file('debate_speech.jsonlist')
-    
+
     speechtexts = []
     for i in range(0, len(infile)):
         for j in range(0, len(infile[i]['speeches'])):
@@ -30,7 +29,7 @@ def create_speechtexts():
     return speechtexts
 
 def create_sets(part):
-    """ Gets the dataset for 'part' being train|test|valid. """
+
     speechtexts = create_speechtexts()
     if part == "train":
         return speechtexts[0:int(0.85 * len(speechtexts))]
@@ -40,11 +39,7 @@ def create_sets(part):
         return speechtexts[int(0.9 * len(speechtexts)):]
 
 def load(speech_data, index):
-    """ Loads the wikitext2 data at the given path using
-    the given index (maps tokens to indices). Returns
-    a list of sentences where each is a list of token
-    indices.
-    """
+
     start = index.add(SENT_START)
     sentences = []
     for paragraph in speech_data:

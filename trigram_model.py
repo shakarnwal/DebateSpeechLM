@@ -24,12 +24,12 @@ for i in range(0, len(speechtexts)):
     speechtexts[i] = speechtexts[i].replace("(","( ")
     speechtexts[i] = speechtexts[i].replace(")"," )")
     speechtexts[i] = speechtexts[i].replace("[","[ ")
-    speechtexts[i] = speechtexts[i].replace("]"," ]")    
-    
+    speechtexts[i] = speechtexts[i].replace("]"," ]")
+
 speechtokenize = []
 for i in range(0, len(speechtexts)):
     speechtokenize.append(word_tokenize(speechtexts[i]))
-    
+
 training = speechtokenize[0:int(0.9 * len(speechtokenize))]
 testing = speechtokenize[int(0.9 * len(speechtokenize)):]
 
@@ -43,8 +43,8 @@ for i in range(0, len(training)):
 for w1_w2 in trigram_model:
     total_count = float(sum(trigram_model[w1_w2].values()))
     for w3 in trigram_model[w1_w2]:
-        total_counts[w1_w2][w3] += total_count        
-        
+        total_counts[w1_w2][w3] += total_count
+
 unique_vals = []
 for i in range(0, len(training)):
     for w in training[i]:
@@ -58,7 +58,7 @@ V = int(len(unique_vals)/10)
 prob_count = []
 
 for i in range(0, len(testing)):
-    
+
     textgen = [None, None]
     ct = 0
     logprob = 0.0
@@ -79,5 +79,5 @@ for i in range(0, len(prob_count)):
 perplexity = pp/ct1
 
 print ("The perplexity of the model is ->")
-print (perplexity)
 
+print (perplexity)
